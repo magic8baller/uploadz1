@@ -10,12 +10,18 @@ it('shows a comment box', () => {
 
 	ReactDOM.render(<App />, div)
 	//look inside div, check if comment box is inside it ('shows a comment
-	console.log(div.innerHTML)
-	//  <div style="border: 2px solid green;"><div style="border: 2px solid blue; margin: 2em;">Comment Box</div><div style="border: 2px solid red; margin: 2em;">comment list</div></div>
+	expect(div.innerHTML).toContain('Comment Box')
 
 	ReactDOM.unmountComponentAtNode(div)
 })
 
+it('shows a comment list', () => {
+	const div = document.createElement('div')
+	ReactDOM.render(<App />, div)
+	expect(div.innerHTML).toContain('comment list')
+
+	ReactDOM.unmountComponentAtNode(div)
+})
 // it ('shows a comment list', () => {
 	// let x = 'test logic here'
 // })
