@@ -28,8 +28,10 @@ wrapped.find('textarea').simulate('change', {
 	//provide fake event object (mock) as 2nd arg, gets merged with event object that passes to other handlers (so passed as arg to handleChange (event.target.value="newcomment", set state etc))
 	target: {value: 'new comment'}
 })
-//force component update
-//assert textarea value changed
+//force component update: but setState = async re-render, but here in test need to do an automatic re-render to check now
+wrapped.update()
+//assert textarea value changed (textarea received the correct value prop!)
+expect(wrapped.find('textarea').prop('value')).toEqual('new comment')
 
 })
 
