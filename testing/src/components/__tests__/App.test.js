@@ -1,27 +1,13 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import {shallow} from 'enzyme'
 import App from '../App'
+import CommentBox from '../CommentBox'
 
 //global function- dont need to require it
 // it ('test description', () => {let x = 'test logic here'})
 
 it('shows a comment box', () => {
-	const div = document.createElement('div')
-
-	ReactDOM.render(<App />, div)
-	//look inside div, check if comment box is inside it ('shows a comment
-	expect(div.innerHTML).toContain('Comment Box')
-
-	ReactDOM.unmountComponentAtNode(div)
+	const wrapped = shallow(<App/>)
+//wrapped = term for component/ OBJECT we are returning from shallow fn()
+expect(wrapped.find(CommentBox).length).toEqual(1);
 })
-
-it('shows a comment list', () => {
-	const div = document.createElement('div')
-	ReactDOM.render(<App />, div)
-	expect(div.innerHTML).toContain('comment list')
-
-	ReactDOM.unmountComponentAtNode(div)
-})
-// it ('shows a comment list', () => {
-	// let x = 'test logic here'
-// })
