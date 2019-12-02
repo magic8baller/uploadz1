@@ -9,8 +9,11 @@ class CommentBox extends Component {
 
 	handleSubmit = e => {
 		e.preventDefault()
-		//call action creator
-		//save comment
+		//TODO-call action creator
+		//TODO-save comment
+
+		//clear textarea on submit
+		this.setState({ comment: '' });
 
 	}
 	render () {
