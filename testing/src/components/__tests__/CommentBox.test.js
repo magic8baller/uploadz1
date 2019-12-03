@@ -2,8 +2,6 @@ import CommentBox from 'components/CommentBox';
 import {mount} from 'enzyme';
 import React from 'react';
 
-
-
 let wrapped;
 
 beforeEach(() => {
@@ -29,13 +27,11 @@ describe('the textarea', () => {
 
 	it('allows user to edit text in textarea', () => {
 		expect(wrapped.find('textarea').prop('value')).toEqual('new comment')
-
 	})
 
 	it('should clear textarea on form submit', () => {
 		wrapped.find('form').simulate('submit')
 		wrapped.update()
 		expect(wrapped.find('textarea').prop('value')).toEqual('')
-
 	})
 })
